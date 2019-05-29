@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ### Automated the annotation of Trinity transcriptome assemblies via the Trinotate pipeline
 ### This script is meant to be run in a directory containing at least one Trinity assembly
