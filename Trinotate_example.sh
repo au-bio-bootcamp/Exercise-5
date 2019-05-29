@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
 export OMP_NUM_THREADS=10
 source /opt/asn/etc/asn-bash-profiles-special/modules.sh
 
