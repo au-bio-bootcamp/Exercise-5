@@ -12,12 +12,6 @@ shopt -s nullglob
 
 ### Create variables for Trinity installation and other binaries
 ### Helps to account for different system configurations
-# TRANSDECODER=`which TransDecoder`
-# BLASTX=`which blastx`
-# BLASTP=`which blastp`
-# HMMSCAN=`which hmmscan`
-# SIGNALP=`which signalp`
-# TMHMM=`which tmhmm`
 
 module load transdecoder
 module load blast+
