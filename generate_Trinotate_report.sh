@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ### Takes the output of the auto-Trinotate.sh script (i.e., Trinity assembled transcriptome annotated via the Trinotate pipeline) and produces
 ### a tab-delimited report that can be opened in Excel or worked with from the CLI
