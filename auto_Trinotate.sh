@@ -16,8 +16,8 @@ shopt -s nullglob
 module load transdecoder
 module load blast+
 module load hmmer
-export PATH=/home/shared/biobootcamp/tools/tmhmm-2.0c/bin:$PATH
-export PATH=/home/shared/biobootcamp/tools/signalp-5.0/bin:$PATH
+module load signalp
+module load tmhmm
 
 ### Start looping through the Trinity assemblies that are *.fasta files
 for FILENAME in *.fasta
