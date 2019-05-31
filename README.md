@@ -78,9 +78,7 @@ Now that we have the two reports as plain text files, we can utilize our arsenal
       3. Now check the number returned from this latest pipeline against the number you received from quantifying the number of descriptors in the FASTA file. Do they now match?
       4. So what lead to the discrepancy in the numbers from each file?  What does this tell you biologically regarding the protein-coding information within your assembled genomic contigs? HINT: According to the header, what are the titles of $5 and $6 in the Trinotate report?
 
-
 The above provided insight regarding how the Trinotate (or any other annotation) report might be structured. Now let’s examine the information in the report itself. Having good annotation provides one “control” in regards to what was actually sequenced. Remember, sequencing technologies like Illumina are non-specific, meaning that any viable nucleic acids that were extracted could have been sequenced and might appear in downstream analyses.  This includes nucleic acids from non-targeted organisms, such as prey items that were consumed or ones living on or in the organism itself. Let’s see if we can find potential cases of this in the transcriptomic and genomic annotation of Lamellibrachia luymesi.
-
 
 17. Let’s do a quantification of the regular expression “bacteria” across our Trinotate transcriptomic report. Since we are not sure if the spelling is “bacteria” or “Bacteria” in the report, let’s err on the side of caution and make our search case-insensitive. So, replace the “X” in the command below with the appropriate flag for such a case-insensitive search (ask among your group if you aren’t sure what it is):
     1. `grep –c –X bacteria Lamellibrachia_luymesi_sub1M_NON_NORM_Trinotate_Annotation_Report_May2015.tab`
