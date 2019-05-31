@@ -7,7 +7,7 @@ Annotation of genomic and transcriptomic assemblies and parsing of annotation re
     2. `mkdir genomic_trinotate` (create the first directory)
     3. `mkdir transcriptomic_trinotate` (create the second directory)
 
-2. Now copy already finished assemblies from Ray (genomic) and Trinity (transcriptomic) for *Lamellibrachia luymesi* to each of the directories. We will be utilizing these “canned” assemblies rather than the ones assembled yourself so that everyone is working with a standardized set (remember the variation in the assembly assessments from Ex. #3?)
+2. Now copy already finished assemblies from Ray (genomic) and Trinity (transcriptomic) for *Lamellibrachia luymesi* to each of the directories. We will be utilizing these “canned” assemblies rather than the ones assembled yourself so that everyone is working with a standardized set (remember the variation in the assembly assessments from exercise #3?)
     1. `cp /home/shared/biobootcamp/data/Lamellibrachia_luymesi_finished_genomic_transcriptomic_assemblies/Lamellibrachia_luymesi_all_genomic_RAY_05_2015.fasta ./genomic_trinotate/` (to copy the genomic assembly to its working directory)
     2. `cp /home/shared/biobootcamp/data/Lamellibrachia_luymesi_finished_genomic_transcriptomic_assemblies/Lamellibrachia_luymesi_sub1M_NON_NORM_TRI_05_2015.fasta ./transcriptomic_trinotate/` (to copy the transcriptomic assembly to its working directory)
 
@@ -18,7 +18,7 @@ Annotation of genomic and transcriptomic assemblies and parsing of annotation re
     4. `nano Trinotate_example.sh` (to view the contents of the script)
     5. Note that while comments in the script indicate that nothing needs to be tweaked, make note of the parameters that you will supply to the queue system for running the script.
 
-4. Now submit your Trinotate_example.sh script for the genomic assembly to the ASC queue system.
+4. Now submit your `Trinotate_example.sh` script for the genomic assembly to the ASC queue system.
 
 5. Check that the job is in the queue using `squeue`. Once it starts, do a “long listing” within the directory. You’ll see that a new directory as well as a `*.log` file have been created. View the contents of the log file:
     1. `cat *.log`
@@ -43,14 +43,14 @@ Annotation of genomic and transcriptomic assemblies and parsing of annotation re
     1. `tar –xvzf Lamellibrachia_luymesi_sub1M_NON_NORM_Trinotate_May2015.tar.gz` (to unpack any .tar.gz archive)
     2. Now do a “long listing”. You see that a new directory has been created from unpacking the archive. Do a “long listing” to see what is in there:
     3. `ls –al Lamellibrachia_luymesi_sub1M_NON_NORM_Trinotate_May2015/`
-    4. There should be ~10 files listed, with a variety of file extensions. Those with “transdecoder” in the file names are output from extracting the potential open reading frames (i.e., ORFs or protein-coding regions) such as the amino acid sequences themselves and their coordinates within respective contigs. You’ll also see that there are copies of the BLAST+ reports and PFAM output. Feel free to explore the contents of these files using the “head” command to see the first 10 lines in a file:
+    4. There should be ~10 files listed, with a variety of file extensions. Those with “transdecoder” in the file names are output from extracting the potential open reading frames (i.e., ORFs or protein-coding regions) such as the amino acid sequences themselves and their coordinates within respective contigs. You’ll also see that there are copies of the BLAST+ reports and PFAM output. Feel free to explore the contents of these files using the `head` command to see the first 10 lines in a file:
         1. `head FILENAME`
 
 11. Now let’s generate the final Trinotate reports from the archives.  Within the directory containing the two (2) `*.tar.gz files`, execute the following command:
     1. `generate_Trinotate_report.sh`
     2. It will take 2-4 minutes to complete, with text scrolling across your screen during the process (try to follow the process by reading the text as it goes by).  Once complete, the command line prompt will return.
 
-12. Do a “long listing” in the directory and note that there are now two (2) files ending in a `*.tab` extension.  These are our finished Trinotate reports containing annotation in tab-delimited fields/columns for the genomic and transcriptomic assemblies of Lamellibrachia luymesi. While you could open these files in Microsoft Excel, use the “head” command to see the first 10 lines of each file and note that the first line (starting with a #) is a header detailing what data are in each field/column.
+12. Do a “long listing” in the directory and note that there are now two (2) files ending in a `*.tab` extension.  These are our finished Trinotate reports containing annotation in tab-delimited fields/columns for the genomic and transcriptomic assemblies of Lamellibrachia luymesi. While you could open these files in Microsoft Excel, use the `head` command to see the first 10 lines of each file and note that the first line (starting with a #) is a header detailing what data are in each field/column.
 
 Now that we have the two reports as plain text files, we can utilize our arsenal of Linux commands to begin analyzing them towards identifying potentially interesting biological trends.
 
@@ -63,7 +63,7 @@ Now that we have the two reports as plain text files, we can utilize our arsenal
 15. Now that we have those, quantify the number of lines in each of your Trinotate reports using the `wc –l` command, which you should remember from the on-line tutorial that you did as part of the pre-Bootcamp assignment. Subtract one from the number that you get due to the header also being counted.
     1. Do the number of entries in FASTA files exactly match the number of lines in their respective Trinotate reports?
 
-16. Let’s dig into this a little deeper, focusing on the smaller of the two datasets, the genomic assembly with file names starting with Lamellibrachia_luymesi_500bp_plus_genomic_*.
+16. Let’s dig into this a little deeper, focusing on the smaller of the two datasets, the genomic assembly with file names starting with `Lamellibrachia_luymesi_500bp_plus_genomic_*`.
     1. `head -1 Lamellibrachia_luymesi_500bp_plus_genomic_RAY_05_2015.fasta`
     2. `head -2 Lamellibrachia_luymesi_500bp_plus_genomic_Trinotate_Annotation_Report_May2015.tab`
         1. What did you do in the above with the option flag to `head`?
@@ -71,7 +71,7 @@ Now that we have the two reports as plain text files, we can utilize our arsenal
         1. `awk -F"\t" 'NR>1 {print $X}' Lamellibrachia_luymesi_500bp_plus_genomic_Trinotate_Annotation_Report_May2015.tab | head -1`
         2. Does the output EXACTLY MATCH the descriptor from the first entry of the FASTA file (expect for the “>”)? If so, good. But:
         3. What is the “NR” in the awk command doing? Consult your awk cheat sheet for details on “NR”. HINT: pesky header.
-        4. Why did you pipe the output of the awk command to head? If you are not sure, bring up the previous command and rerun it without the pipe and head (i.e., “| head -1”). What happened? Why was “head” useful in this case?
+        4. Why did you pipe the output of the awk command to head? If you are not sure, bring up the previous command and rerun it without the pipe and head (i.e., “| head -1”). What happened? Why was `head` useful in this case?
     4. Now lets quantify how many unique entries are in the column from above. We will “recycle” most of our previous command and “tweak” it further (again, the command should be written as one single line):
       1. `awk -F"\t" 'NR>1 {print $X}' Lamellibrachia_luymesi_500bp_plus_genomic_Trinotate_Annotation_Report_May2015.tab | sort | uniq | wc -l`
       2. What additions did we add to pipeline and more importantly, what are these additions doing? For more details on each of the commands in this pipeline, consult `man cmd_name`.
@@ -96,7 +96,7 @@ The above provided insight regarding how the Trinotate (or any other annotation)
     2. Examine the entry that is returned, looking for 1) instances of “bacteria” and 2) what field(s)/column(s) they occur in. Unfortunately, this output is a little hard to read. So let’s fix that:
     3. `grep –i bacteria Lamellibrachia_luymesi_500bp_plus_genomic_Trinotate_Annotation_Report_May2015.tab | head -1 | xargs -d "\t" -n 1`
         1. What is `xargs`? Explore the man page.  HINT: doesn’t it look like we broke a single line into a single column? Now it easier to read (pretty cool, huh, and that is just one of the many things xargs can do).
-    4. It looks like there are two (2) columns with our regular expression (why are there two columns in the first place? HINT: check the header names for those columns). Let’s focus on the first of them. We will also be making our search more specific by restricting it to 1) “Bacteria” (note the capital “B” and removal of the “–i” option below) and 2) adding filters to remove any potential “bleed-through” of “Eukaryota, Viruses and Archaea”. Insert the number of the field/column identified above in Section 18.c in place of the “X” in the command below and execute it in your Terminal:
+    4. It looks like there are two (2) columns with our regular expression (why are there two columns in the first place? HINT: check the header names for those columns). Let’s focus on the first of them. We will also be making our search more specific by restricting it to 1) “Bacteria” (note the capital “B” and removal of the “–i” option below) and 2) adding filters to remove any potential “bleed-through” of “Eukaryota, Viruses and Archaea”. Insert the number of the field/column identified above in Section 18.iii in place of the “X” in the command below and execute it in your Terminal:
         1. `grep Bacteria Lamellibrachia_luymesi_500bp_plus_genomic_Trinotate_Annotation_Report_May2015.tab | egrep -v "Eukaryota|Viruses|Archaea" | awk -F"\t" '{print $X}' | awk -F"^" '{print $7}' | less`
             1. As you scroll through the output in “less”, did we accomplish what we set out to do? Press “q” to exit “less” when ready
             2. Discuss among the group 1) what the `egrep` command is doing and 2) why there is, and what is different about, the second awk statement. To better understand “egrep”, “man egrep” and read the “DESCRIPTION” and “OPTIONS” sections of the manual page. Also try repeating the above command, but without the inclusion of “egrep” portion of the pipeline. As for the second awk statement, compare the –F option to that of the first awk statement for clues.
