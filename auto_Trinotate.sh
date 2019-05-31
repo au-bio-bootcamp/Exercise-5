@@ -37,6 +37,7 @@ do
 	printf "Started transdecoder for ${SPECIES} on `date` ......\n" >> ../Trinotate_run_${PARENT_DIR}_${MTHYR}.log
 	# ${TRANSDECODER} -t $FILENAME
   	TransDecoder.LongOrfs -t $FILENAME
+	TransDecoder.Predicct -t $FILENAME
 	rm -rf *.tmp*
 
   ### BLAST the raw transcripts (blastx) and peptide candidates (blastp) against the UNIProt database; save single best hit in tab delimited format
