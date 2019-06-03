@@ -43,8 +43,7 @@ Annotation of genomic and transcriptomic assemblies and parsing of annotation re
     1. `tar –xvzf Lamellibrachia_luymesi_sub1M_NON_NORM_Trinotate_May2015.tar.gz` (to unpack any .tar.gz archive)
     2. Now do a “long listing”. You see that a new directory has been created from unpacking the archive. Do a “long listing” to see what is in there:
     3. `ls –al Lamellibrachia_luymesi_sub1M_NON_NORM_Trinotate_May2015/`
-    4. There should be ~10 files listed, with a variety of file extensions. Those with “transdecoder” in the file names are output from extracting the potential open reading frames (i.e., ORFs or protein-coding regions) such as the amino acid sequences themselves and their coordinates within respective contigs. You’ll also see that there are copies of the BLAST+ reports and PFAM output. Feel free to explore the contents of these files using the `head` command to see the first 10 lines in a file:
-        1. `head FILENAME`
+    4. There should be ~10 files listed, with a variety of file extensions. Those with “transdecoder” in the file names are output from extracting the potential open reading frames (i.e., ORFs or protein-coding regions) such as the amino acid sequences themselves and their coordinates within respective contigs. You’ll also see that there are copies of the BLAST+ reports and PFAM output. Feel free to explore the contents of these files using the `head` command to see the first 10 lines in a file: `head <FILENAME>`
 
 11. Now let’s generate the final Trinotate reports from the archives.  Within the directory containing the two (2) `*.tar.gz files`, execute the following command:
     1. `generate_Trinotate_report.sh`
