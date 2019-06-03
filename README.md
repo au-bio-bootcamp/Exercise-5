@@ -83,7 +83,7 @@ The above provided insight regarding how the Trinotate (or any other annotation)
     1. `grep –c –X bacteria Lamellibrachia_luymesi_sub1M_NON_NORM_Trinotate_Annotation_Report_May2015.tab`
     2. Now quantify the total number of entries in the Lamellibrachia_luymesi_sub1M_NON_NORM_Trinotate_Annotation_Report_May2015.tab report using the `wc –l` command (remember to subtract one from the number that you get due to the (pesky) header also being counted)
     3. What is the ratio of “bacteria” to total annotation entries in the Trinotate transcriptomic report?
-    4. Now repeat the above search and ratio calculation for the Trinotate genomic report (i.e., Lamellibrachia_luymesi_500bp_plus_genomic_Trinotate_Annotation_Report_May2015.tab).
+    4. Now repeat the above search and ratio calculation for the Trinotate genomic report (i.e., `Lamellibrachia_luymesi_500bp_plus_genomic_Trinotate_Annotation_Report_May2015.tab`).
     5. Once you have your numbers, discuss among the group the following questions:
         1. How similar or different are the ratios calculated from the transcriptomic vs. genomic assemblies and their annotation reports?
         2. Why might the ratios be so different and what does this tell you about the methodological approaches? HINT: when generating genomic vs. transcriptomic data
